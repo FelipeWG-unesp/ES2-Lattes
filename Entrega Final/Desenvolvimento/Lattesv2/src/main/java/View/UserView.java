@@ -55,7 +55,7 @@ public class UserView extends JFrame {
 
             if (option == JOptionPane.YES_OPTION) {
                 dispose();
-                new LoginView(new controller.SistemaController()).setVisible(true);
+                new LoginView(new Controller.SistemaController()).setVisible(true);
             }
         });
 

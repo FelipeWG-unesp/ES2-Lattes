@@ -1,17 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package controller;
+package Controller;
 
 import DAO.*;
 import Model.*;
-import auxx.*;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import java.util.List;
+import java.util.ArrayList;
 
 public class SistemaController {
 
@@ -19,8 +11,9 @@ public class SistemaController {
     private CurriculoDAO curriculoDAO;
     private RelatorioDAO relatorioDAO;
     private LoginDAO loginDAO;
-    private ADMDAO admDAO; 
+    private ADMDAO admDAO;
     private SistemaDAO sistemaDAO;
+    private List<Curriculo> curriculos; // Lista interna para armazenar currículos
 
     public SistemaController() {
         this.usuarioDAO = new UsuarioDAO();
@@ -29,6 +22,7 @@ public class SistemaController {
         this.loginDAO = new LoginDAO();
         this.sistemaDAO = new SistemaDAO();
         this.admDAO = new ADMDAO();
+        this.curriculos = new ArrayList<>(); // Inicializa a lista de currículos
     }
 
     // Método para fazer login
@@ -51,7 +45,11 @@ public class SistemaController {
 
     // Método para buscar currículos de um usuário
     public void buscarCurriculos(String usuarioCpf) {
-        List<Curriculo> curriculos = curriculoDAO.buscarCurriculosPorUsuario(usuarioCpf);
+        // Verifica se a lista interna já possui currículos
+        if (curriculos.isEmpty()) {
+            curriculos = curriculoDAO.buscarCurriculosPorUsuario(usuarioCpf);
+        }
+
         if (curriculos.isEmpty()) {
             System.out.println("Nenhum currículo encontrado para este usuário.");
         } else {

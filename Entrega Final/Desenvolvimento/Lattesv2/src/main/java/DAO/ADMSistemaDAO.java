@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DAO;
 
 import Model.ADMSistema;
@@ -52,4 +48,24 @@ public class ADMSistemaDAO {
         return false;
     }
 
+    // Método para listar todas as associações entre ADM e Sistema
+    public List<ADMSistema> listarADMSistemas() {
+        List<ADMSistema> admsSistemaList = new ArrayList<>();
+        String sql = "SELECT adm_login, sistema_nome FROM ADM_Sistema";
+        try (Connection conn = Conexao.getConexao();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                String admLogin = rs.getString("adm_login");
+                String sistemaNome = rs.getString("sistema_nome");
+                ADMSistema admSistema = new ADMSistema(admLogin, sistemaNome);
+                admsSistemaList.add(admSistema);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return admsSistemaList;
+    }
 }

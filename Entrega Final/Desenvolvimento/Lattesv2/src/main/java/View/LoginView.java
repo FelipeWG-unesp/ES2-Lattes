@@ -2,7 +2,7 @@ package View;
 
 import Model.ADM;
 import Model.Usuario;
-import controller.SistemaController;
+import Controller.SistemaController;
 
 import javax.swing.*;
 import java.awt.*;

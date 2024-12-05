@@ -5,7 +5,7 @@
 package com.mycompany.lattes;
 
 import View.LoginView;
-import controller.SistemaController;
+import Controller.SistemaController;
 import javax.swing.SwingUtilities;
 
 

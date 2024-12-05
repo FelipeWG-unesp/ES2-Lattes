@@ -248,6 +248,31 @@ String sql = "SELECT DISTINCT u.* " +
         return null;
     }
 
+    public List<Usuario> buscarUsuarios() {
+        String sql = "SELECT * FROM Usuario";
+        List<Usuario> usuarios = new ArrayList<>();
+
+        try (Connection conn = Conexao.getConexao();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Usuario usuario = new Usuario(
+                        rs.getString("cpf"),
+                        rs.getString("nome"),
+                        rs.getString("email"),
+                        rs.getString("senha")
+                );
+                usuarios.add(usuario);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return usuarios;
+    }
 
 
 }

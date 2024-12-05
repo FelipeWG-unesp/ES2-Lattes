@@ -2,7 +2,7 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
-import controller.SistemaController;
+import Controller.SistemaController;
 
 public class AdicionarGerenteView extends JFrame {
     private JTextField loginField;
