@@ -1,0 +1,15 @@
+Visão,Nome do documento:,Diagrama de caso de uso de alto nível,,,,Visão,Nome do documento:,Diagrama de caso de uso de alto nível,,,,Visão,Nome do documento:
+,,,# Defeitos,Página,Classe,Descrição,,,,
+Projetista,,,,,Usuário,,,,,
+Defeito 1,Cadastrar Usuário,Fato Incorreto (FI),O diagrama não contempla o tratamento de erros caso ocorra uma falha de conexão com o banco de dados durante o cadastro.,,,Defeito 1,Cadastrar Usuário,Ambiguidade (A),A sequência de ações não deixa claro se o usuário recebe uma confirmação visual ou por e-mail após o cadastro.,,
+Defeito 2,Login no Sistema,Inconsistência (I),O diagrama não esclarece como o sistema gerencia sessões ativas, especialmente para logins simultâneos.,,,Defeito 2,Login no Sistema,Omissão (O),O diagrama não mostra um feedback visual para tentativas de login inválidas, como senha incorreta.,,
+Defeito 3,Importar Currículo,Omissão (O),Não há validação dos dados importados antes do salvamento no banco de dados.,,,Defeito 3,Importar Currículo,Ambiguidade (A),Não está claro no diagrama se o usuário é informado sobre o sucesso ou erro da importação.,,
+Defeito 4,Gerar Relatório,Inconsistência (I),O diagrama não especifica se o relatório gerado é armazenado ou apenas exibido.,,,Defeito 4,Gerar Relatório,Ambiguidade (A),O diagrama não especifica se o usuário pode escolher o formato do relatório (PDF ou XML) durante o processo de geração.,,
+Defeito 5,Editar Currículo,Omissão (O),O diagrama não considera o controle de versão para as edições realizadas no currículo.,,,Defeito 5,Editar Currículo,Omissão (O),O diagrama não apresenta uma etapa de confirmação antes de salvar as edições feitas no currículo.,,
+
+,,,,,,Testador,,,,,
+Defeito 1,Cadastrar Usuário,Omissão (O),O diagrama não inclui verificação de duplicidade para e-mails ou nomes de usuário.,,,Defeito 1,Cadastrar Usuário,,"",,
+Defeito 2,Login no Sistema,Informação Estranha (IE),O diagrama inclui uma verificação de IP não mencionada nos requisitos.,,,Defeito 2,Login no Sistema,,"",,
+Defeito 3,Importar Currículo,Fato Incorreto (FI),O diagrama sugere que qualquer formato de currículo é aceito, mas os requisitos especificam apenas o formato XML.,,,Defeito 3,Importar Currículo,,"",,
+Defeito 4,Gerar Relatório,Informação Estranha (IE),O diagrama apresenta uma etapa para geração de relatórios estatísticos, não especificada nos requisitos.,,,Defeito 4,Gerar Relatório,,"",,
+Defeito 5,Editar Currículo,Fato Incorreto (FI),O diagrama permite a edição de todas as seções do currículo sem restrições, mas algumas seções possuem restrições de acesso.,,,Defeito 5,Editar Currículo,,"",,
